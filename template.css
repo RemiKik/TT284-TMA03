@@ -1,0 +1,158 @@
+body 
+{
+	width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	font-family: "Courier New";
+}
+
+h1 {
+	font-size: 2.5em;
+}
+ul { 
+  list-style-type: none; /*This stops the list being rendered as a bulleted list. */ 
+  top: 0;
+  width: 100%; 
+  margin: 0; 
+  padding: 0; 
+} 
+li { 
+  display: inline-block; 
+  margin-bottom: 6px; /* This makes a visible gap between the menu items. */ 
+  width: 100%; 
+  background-color: black;
+  text-decoration: none;
+} 
+li a { 
+  display: block; 
+  height: 50px; 
+  line-height: 50px; /*This makes the clickable area of the link the full size of the visible area that surrounds the link */ 
+  width: 100%; 
+  text-align: center; 
+  font-size: 1.7em;
+   color: white;  
+  text-decoration: none;
+  white-space: nowrap; 
+  overflow: hidden; 
+  text-overflow: ellipsis; /*This indicates too much text for the space with ... */ 
+}
+
+input[type=text] {
+	padding: 12px 20px;
+	margin: 8px 0;
+	box-sizing: border-box;
+	width: 80%;
+}
+
+
+td {
+    vertical-align: middle;
+    border-right: solid 1px;
+    padding: 1em;
+	font-size: 1.5em;
+}
+
+
+tr {
+	padding: 1em;
+}
+
+tr:hover {
+	background-color: #98FB98;
+}
+#menu {
+	width: 100%;
+}
+
+.main-content{
+	max-width: 900px;
+		margin: 0 auto;
+}
+
+#section1 {
+	border-bottom: 4px dotted black;
+}
+
+#section2 {
+	border-bottom: 4px dotted black;
+
+}
+
+#section3 {
+
+	
+}
+
+
+.searchforterm {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 0.8em 2em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+}
+
+.addterm {
+    background-color: #008CBA; /* Green */
+    border: none;
+    color: white;
+    padding: 0.8em 2em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+}
+
+.searchtodelete {
+    background-color: red; /* Green */
+    border: none;
+    color: white;
+    padding: 0.8em 2em;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1em;
+}
+
+
+@media screen and (min-width: 500px) { 
+  ul {
+        margin-top: 0;
+    }
+  li { 
+    width: calc(100% /3 );
+    float: left;
+	margin-bottom: 20px;
+  }
+  #menu {
+  
+    background-color: #76c626; 
+    display: inline; 
+    width: 100%;
+  } 
+  #section1 {	padding: 70px 0px;} 
+}
+
+
+@media screen and (max-width: 600px) { 
+td {
+    vertical-align: middle;
+    border-right: solid 1px;
+    padding: 0.2em;
+	font-size: 1em;
+}
+
+
+tr {
+	padding: 0.2em;
+}
+input[type=button] {
+	margin: 8px 0;
+	font-size: 1em;
+	box-sizing: border-box;
+}
+}
+

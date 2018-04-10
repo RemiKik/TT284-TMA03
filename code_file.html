@@ -1,0 +1,44 @@
+<!DOCTYPE html> 
+<html lang = "en"> 
+<head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+  <link rel="stylesheet" href="code_file.css">
+  <title>Automatic numbering</title> 
+</head>
+<body>
+
+<h1>Checking a password with php</h1>
+<span style="color: #000000">
+<span style="color: #0000BB">
+<p>&lt;?php</p>
+<p></span><span style="color: #007700">if(!</span><span style="color: #0000BB">defined</span><span style="color: #007700">(</span><span style="color: #DD0000">'ISITSAFETORUN'</span><span style="color: #007700">))&nbsp;{
+<p>&nbsp;&nbsp;&nbsp;die(</span><span style="color: #DD0000">'cannot&nbsp;be&nbsp;run&nbsp;on&nbsp;its&nbsp;own'</span><span style="color: #007700">);&nbsp;
+<p>}
+<p>if&nbsp;(!</span><span style="color: #0000BB">$db</span><span style="color: #007700">)&nbsp;die&nbsp;(</span><span style="color: #0000BB">$error</span><span style="color: #007700">);
+<p></span><span style="color: #0000BB">$hashed_password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">''</span><span style="color: #007700">;
+<p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$sql&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #DD0000">"SELECT&nbsp;hashpass&nbsp;FROM&nbsp;'people'&nbsp;WHERE&nbsp;username&nbsp;=&nbsp;:username"</span><span style="color: #007700">;
+<p>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$stmt&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$db</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">prepare</span><span style="color: #007700">(&nbsp;</span><span style="color: #0000BB">$sql&nbsp;</span><span style="color: #007700">);
+<p>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">bindValue</span><span style="color: #007700">(</span><span style="color: #DD0000">":username"&nbsp;</span><span style="color: #007700">,</span><span style="color: #0000BB">$username&nbsp;</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">SQLITE3_TEXT</span><span style="color: #007700">);
+<p>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$result&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$stmt</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">execute</span><span style="color: #007700">();
+<p>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #FF8000">//$result&nbsp;=&nbsp;$dbhandle-&gt;query($sql)&nbsp;or&nbsp;die('Query&nbsp;failed');&nbsp;&nbsp;&nbsp;
+<p>&nbsp;
+<p>
+<p></span><span style="color: #007700">while&nbsp;(</span><span style="color: #0000BB">$row&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$result</span><span style="color: #007700">-&gt;</span><span style="color: #0000BB">fetchArray</span><span style="color: #007700">())
+<p>{
+<p></span><span style="color: #FF8000">//echo&nbsp;'we&nbsp;have&nbsp;found&nbsp;a&nbsp;row'&nbsp;;
+<p>&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$hashed_password&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">$row</span><span style="color: #007700">[</span><span style="color: #DD0000">'hashpass'</span><span style="color: #007700">];
+<p>}
+<p>if&nbsp;(</span><span style="color: #0000BB">password_verify</span><span style="color: #007700">(</span><span style="color: #0000BB">$userpassword</span><span style="color: #007700">,&nbsp;</span><span style="color: #0000BB">$hashed_password</span><span style="color: #007700">))&nbsp;{
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'&nbsp;you&nbsp;have&nbsp;successfully&nbsp;logged&nbsp;in&nbsp;'</span><span style="color: #007700">;
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ISPASSWORDVALID&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">TRUE</span><span style="color: #007700">;
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}else{
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style="color: #0000BB">$ISPASSWORDVALID&nbsp;</span><span style="color: #007700">=&nbsp;</span><span style="color: #0000BB">FALSE</span><span style="color: #007700">;
+<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;echo&nbsp;</span><span style="color: #DD0000">'Password&nbsp;does&nbsp;not&nbsp;match'&nbsp;</span><span style="color: #007700">;
+<p>&nbsp;&nbsp;&nbsp;&nbsp;}
+<p>
+<p></span><span style="color: #0000BB">?&gt;
+<p></span>
+<p></span>
+</body>

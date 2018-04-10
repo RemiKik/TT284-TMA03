@@ -1,0 +1,10 @@
+
+body {
+    counter-reset: section;  /* Counter for section is set at the start of the body. */ 
+}
+p::before { /* For each paragraph  a counter is incremented and added before the start of the paragraph. */ 
+    counter-increment: section;
+    content: counter(section) " :   " ;
+    font-size: 1em;
+    color: darkgreen;
+}
